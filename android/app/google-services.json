@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "110041391170",
+    "project_id": "mini-shopping-cart-flutter",
+    "storage_bucket": "mini-shopping-cart-flutter.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110041391170:android:aa6537edd36f22a10e8ddb",
+        "android_client_info": {
+          "package_name": "com.example.mini_shopping_cart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUL_lEPL9M4It5sydvKF6H2B4D2OxCTNA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
