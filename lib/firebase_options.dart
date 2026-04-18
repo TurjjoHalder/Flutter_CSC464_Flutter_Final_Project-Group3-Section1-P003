@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -65,4 +62,14 @@ class DefaultFirebaseOptions {
     storageBucket: 'mini-shopping-cart-flutter.firebasestorage.app',
     iosBundleId: 'com.example.miniShoppingCart',
   );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyBgxR17FxKsriyX0oojPWUGi9XLAU0d2W0',
+    appId: '1:110041391170:web:3fc20af8ba5742d20e8ddb',
+    messagingSenderId: '110041391170',
+    projectId: 'mini-shopping-cart-flutter',
+    authDomain: 'mini-shopping-cart-flutter.firebaseapp.com',
+    storageBucket: 'mini-shopping-cart-flutter.firebasestorage.app',
+  );
+
 }

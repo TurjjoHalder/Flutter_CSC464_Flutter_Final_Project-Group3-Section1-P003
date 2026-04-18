@@ -1,67 +1,94 @@
 import 'package:flutter/material.dart';
+import 'package:mini_shopping_cart/models/product_data_model.dart';
 
-class ProductCardWidget extends StatefulWidget {
-  final String name;
-  final String description;
-  final num price;
-  final String imageUrl;
-  
-  const ProductCardWidget({super.key, required this.name, required this.description, required this.price, required this.imageUrl});
+class ProductCardWidget extends StatelessWidget {
+  // Now it only takes the ProductDataModel and the cart controls
+  final ProductDataModel product;
+  final int quantity;
+  final VoidCallback onIncrement;
+  final VoidCallback onDecrement;
 
-  @override
-  State<ProductCardWidget> createState() => _ProductCardWidgetState();
-}
+  const ProductCardWidget({
+    super.key,
+    required this.product,
+    required this.quantity,
+    required this.onIncrement,
+    required this.onDecrement,
+  });
 
-class _ProductCardWidgetState extends State<ProductCardWidget> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      clipBehavior: Clip.antiAlias, // Ensures the image corners are rounded
+      color: Colors.grey[300],
+      clipBehavior: Clip.antiAlias,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Image Section
           Expanded(
             child: Image.network(
-              widget.imageUrl, // Replace with your product image URL
+              product.imageUrl, // Access data through the product object
               width: double.infinity,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          Container(
+            padding: const EdgeInsets.all(10.0),
+            color: const Color.fromARGB(66, 55, 131, 194),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                 Text(
-                  widget.name, // Replace with your product name
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  widget.description, // Replace with your product description
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 12, color: Colors.grey),
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "\$${widget.price.toStringAsFixed(2)}",
-                      style: TextStyle(
-                        color: Colors.green,
-                        fontWeight: FontWeight.bold,
-                      ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          product.name,
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          product.description,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(fontSize: 12),
+                        ),
+                        Text(
+                          "Price: \$${product.price.toStringAsFixed(2)}",
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
-                    IconButton(
-                      icon: const Icon(Icons.add_shopping_cart, size: 20),
-                      onPressed: () {
-                        /* Add to cart logic */
-                      },
-                    ),
-                  ],
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.blueAccent,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: quantity == 0
+                      ? IconButton(
+                          icon: const Icon(Icons.shopping_bag_outlined, color: Colors.white, size: 20),
+                          onPressed: onIncrement, // Calls the provider via LandingPage
+                        )
+                      : Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(
+                              icon: const Icon(Icons.remove, color: Colors.white, size: 20),
+                              onPressed: onDecrement, // Calls the provider via LandingPage
+                            ),
+                            Text(
+                              '$quantity',
+                              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.add, color: Colors.white, size: 20),
+                              onPressed: onIncrement, // Calls the provider via LandingPage
+                            ),
+                          ],
+                        ),
                 ),
               ],
             ),
