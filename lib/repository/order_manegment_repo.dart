@@ -22,5 +22,21 @@ class OrderManegmentRepo {
       return false;
     }
   }
+
+  Future<List<OrderDataModel>> getOrderList(OrderDataModel orderDataList) async {
+    try {
+      QuerySnapshot snapshot = await firestore.collection(MyAppConstants.orderCollection).get();
+      List<OrderDataModel> orders = snapshot.docs.map((doc) {
+        Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+        return OrderDataModel.fromJson(data);
+      }).toList();
+      
+      // You can return the list of orders or handle it as needed
+      return orders;
+    } catch (e) {
+      print("Error fetching orders: $e");
+      return [];
+    }
+  }
   
 }
