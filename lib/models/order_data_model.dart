@@ -15,14 +15,15 @@ String orderDataModelToJson(List<OrderDataModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class OrderDataModel {
-  String orderId;
+  String orderId;   // TODO: Have to check something here on 22 april morning
+  
   String customerName;
   String customerPhone;
   String customerAddress;
   List<Item> items;
   double total;
   String status;
-  DateTime? createdAt;
+  Timestamp? createdAt;
 
   OrderDataModel({
     required this.orderId,
@@ -44,8 +45,8 @@ class OrderDataModel {
     total: json["total"]?.toDouble(),
     status: json["status"],
     createdAt: json["createdAt"] is String
-        ? DateTime.parse(json["createdAt"])
-        : (json["createdAt"] as Timestamp).toDate(),
+        ? Timestamp.fromDate(DateTime.parse(json["createdAt"]))
+        : (json["createdAt"] as Timestamp),
   );
 
   Map<String, dynamic> toJson() => {

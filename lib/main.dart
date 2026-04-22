@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_shopping_cart/firebase_options.dart';
-import 'package:mini_shopping_cart/providors/cart_manegment_providor.dart';
+import 'package:mini_shopping_cart/providors/cart_manegment_provider.dart';
+import 'package:mini_shopping_cart/providors/order_manegment_provider.dart';
 import 'package:mini_shopping_cart/screens/landing_page.dart';
 import 'package:provider/provider.dart';
 
@@ -15,6 +16,7 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => CartProvider()),
+        ChangeNotifierProvider(create: (context) => OrderManegmentProvider()),
       ],
       child: const MyApp(),
     ),

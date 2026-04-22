@@ -2,7 +2,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_shopping_cart/models/product_data_model.dart';
-import 'package:mini_shopping_cart/providors/cart_manegment_providor.dart';
+import 'package:mini_shopping_cart/providors/cart_manegment_provider.dart';
 import 'package:mini_shopping_cart/utils/constant.dart';
 import 'package:mini_shopping_cart/widgets/product_card_widget.dart';
 import 'package:provider/provider.dart';

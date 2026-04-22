@@ -43,8 +43,7 @@ class ProductManegmentRepo {
 }
 
 
-// Note: You might need to import your firebase_options.dart file 
-// if you used the FlutterFire CLI to set up your project.
+// This is just a quick script to upload dummy data. You can run this in a separate Dart file or as part of your main app initialization. Make sure to comment it out after running once to avoid duplicate entries!
 
 // void main() async {
 //   // Required to talk to the native Firebase SDKs
