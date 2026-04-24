@@ -190,7 +190,7 @@ class DummyProducts {
     ),
     ProductDataModel(
       productId: "19",
-      name: "Fresh Fruit 7",
+      name: "cherry",
       description: "Delicious and organic fruit from our farm.",
       price: 2.99,
       imageUrl: "https://i.ibb.co.com/YFJPb2QV/7.png",
