@@ -39,3 +39,21 @@ class ProductDataModel {
     );
   }
 
+  factory ProductDataModel.fromJson(Map<String, dynamic> json) => ProductDataModel(
+    productId: json["productId"],
+    name: json["name"],
+    price: json["price"]?.toDouble(),
+    category: json["category"],
+    imageUrl: json["imageUrl"],
+    description: json["description"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "productId": productId,
+    "name": name,
+    "price": price,
+    "category": category,
+    "imageUrl": imageUrl,
+    "description": description,
+  };
+}
