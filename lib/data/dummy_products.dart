@@ -220,4 +220,29 @@ class DummyProducts {
       imageUrl: "https://i.ibb.co.com/vG5qnv6/10.png",
       category: "Fruits",
     ),
-
+    ProductDataModel(
+      productId: "23",
+      name: "Watermelon",
+      description: "Delicious and organic fruit from our farm.",
+      price: 2.99,
+      imageUrl: "https://i.ibb.co.com/jPxqhMFp/11.png",
+      category: "Fruits",
+    ),
+    ProductDataModel(
+      productId: "24",
+      name: "Kiwi",
+      description: "Delicious and organic fruit from our farm.",
+      price: 2.99,
+      imageUrl: "https://i.ibb.co.com/ynRPyqGn/12.png",
+      category: "Fruits",
+    ),
+    ProductDataModel(
+      productId: "25",
+      name: "Papaya",
+      description: "Delicious and organic fruit from our farm.",
+      price: 2.99,
+      imageUrl: "https://i.ibb.co.com/fzsBNyV0/13.png",
+      category: "Fruits",
+    ),
+  ];
+}
